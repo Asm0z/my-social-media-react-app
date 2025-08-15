@@ -4,24 +4,33 @@ import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { UserContext } from "../Context/UserContext";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 export default function EditProfile() {
-    let {getUserData} = useContext(UserContext);
-    let {register, handleSubmit} = useForm();
-    async function uploadImage(value){
-        let imgFile = value.photo[0];
-        let formData = new FormData();
-        formData.append("photo", imgFile);
-        let {data} = await axios.put('https://linked-posts.routemisr.com/users/upload-photo',formData, {
-            headers:{
-                token: localStorage.getItem("token"),
-            }
-        })
-        if(data.message == "success"){
-            getUserData();
-            toast.success("Image Changed successfully");
-        }
+  let navigate = useNavigate();
+  let { getUserData } = useContext(UserContext);
+  let { register, handleSubmit } = useForm();
+  async function uploadImage(value) {
+    let imgFile = value.photo[0];
+    let formData = new FormData();
+    formData.append("photo", imgFile);
+    let { data } = await axios.put(
+      "https://linked-posts.routemisr.com/users/upload-photo",
+      formData,
+      {
+        headers: {
+          token: localStorage.getItem("token"),
+        },
+      }
+    );
+    if (data.message == "success") {
+      getUserData();
+      toast.success("Image Changed successfully");
+      setTimeout(() => {
+        navigate("/");
+      }, 500);
     }
+  }
   return (
     <>
       <form className="text-center" onSubmit={handleSubmit(uploadImage)}>
@@ -54,12 +63,16 @@ export default function EditProfile() {
                 SVG, PNG, JPG or GIF (MAX. 800x400px)
               </p>
             </div>
-            <FileInput {...register("photo")} id="dropzone-file" className="hidden" />
+            <FileInput
+              {...register("photo")}
+              id="dropzone-file"
+              className="hidden"
+            />
           </Label>
         </div>
         <button
           type="submit"
-          className="mt-3 text-white bg-purple-600 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:focus:ring-purple-800"
+          className="mt-3 text-white bg-purple-600 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:focus:ring-purple-800 cursor-pointer"
         >
           Submit New Data
         </button>

@@ -23,7 +23,6 @@ export default function Home() {
     if (data.message == "success") {
       setPosts(data.posts);
     }
-    console.log(data);
   }
   return (
     <div className="md:w-3/4 w-full md:mx-auto">

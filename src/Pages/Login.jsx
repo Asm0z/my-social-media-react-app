@@ -1,4 +1,4 @@
-import registerLogo from "../assets/Sign up-logo.svg";
+import loginLogo from "../assets/Login-logo.svg";
 import { Navigate, NavLink, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
@@ -49,7 +49,7 @@ export default function Login() {
   return (
     <div className="md:grid md:grid-cols-2 md:gap-2">
       <div className="hidden md:block">
-        <img src={registerLogo} alt="signup-logo" className="w-full" />
+        <img src={loginLogo} alt="signup-logo" className="w-full" />
       </div>
       <div className="flex items-center justify-center">
         <form

@@ -27,7 +27,7 @@ export default function CreatePost() {
   return (
     <form onSubmit={handleSubmit(handleCreatedPost)} className="my-5  bg-purple-100 dark:bg-purple-500/35 rounded-3xl p-5">
       <h3 className="text-purple-900 dark:text-white py-3 border-b-2 dark:border-white">
-        Share Your Thoughts
+        Share Your Thoughts <i class="fa-solid fa-message ps-2"></i>
       </h3>
       <div className="flex justify-between align-middle py-5">
         <img
@@ -38,7 +38,7 @@ export default function CreatePost() {
         <input
           type="text"
           {...register("body")}
-          class=" mx-4 bg-purple-50 border border-purple-300 text-purple-900 text-sm rounded-lg focus:ring-purple-500/35 focus:border-purple-500/35 block w-full p-2.5 dark:bg-purple-900/35 dark:border-purple-600 dark:placeholder-purple-400 dark:text-white dark:focus:ring-purple-500/35 dark:focus:border-purple-500/35"
+          class=" mx-5 bg-purple-50 border border-purple-300 text-purple-900 text-sm rounded-lg focus:ring-purple-500/35 focus:border-purple-500/35 block w-full p-2.5 dark:bg-purple-900/35 dark:border-purple-600 dark:placeholder-purple-400 dark:text-white dark:focus:ring-purple-500/35 dark:focus:border-purple-500/35"
         />
         <label htmlFor="uploadPostImage" className="my-auto cursor-pointer">
           <i class="fa-regular fa-images text-2xl text-purple-900 dark:text-white"></i>

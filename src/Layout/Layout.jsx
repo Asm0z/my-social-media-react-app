@@ -6,7 +6,7 @@ export default function Layout() {
   return (
     <div className='dark:bg-gray-800 dark:text-white'>
       <NavbarComponent />
-      <div className='min-h-screen px-3 md:px-36 py-20'>
+      <div className='min-h-screen px-3 md:px-36 py-24'>
         <Outlet /> 
       </div>
     </div>
